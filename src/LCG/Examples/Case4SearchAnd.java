@@ -14,7 +14,7 @@ import LCG.DB.EDF.Events.QuerySimple;
 public class Case4SearchAnd {
 
 	public static void main(String[] args) throws IOException {
-		String db_root = "/home/feiben/DBTest/SeventhDB";
+		String db_root = "/home/feiben/DBTest/RTSeventhDB";
 		DBTaskCenter tc = new DBTaskCenter(db_root);  
 		 
 		

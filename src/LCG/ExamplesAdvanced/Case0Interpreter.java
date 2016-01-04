@@ -27,7 +27,7 @@ public class Case0Interpreter {
 	
 	public static void main(String[] args) throws IOException {
 	
-		String db_root = "/home/feiben/DBTest/SeventhDB";
+		String db_root = "/home/feiben/DBTest/RTSeventhDB";
 		DBTaskCenter tc = new DBTaskCenter(db_root);  
 	
 		

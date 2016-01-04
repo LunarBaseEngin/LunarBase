@@ -13,7 +13,7 @@ import LCG.RecordTable.StoreUtile.Record32KBytes;
 public class Case2ListLatestN {
 
 	public static void main(String[] args) throws IOException {
-		String db_root = "/home/feiben/DBTest/SeventhDB";
+		String db_root = "/home/feiben/DBTest/RTSeventhDB";
 		DBTaskCenter tc = new DBTaskCenter(db_root);  
 		 
 		CustomizedResultHandler my_handler = new CustomizedResultHandler();
