@@ -55,12 +55,12 @@ public class Case0Interpreter {
 		 
 		
 		OpsStack os = new OpsStack();
-		os.addOps(ids1.get(), Ops.NOTHING);/* add an nothing-operator just for keeping 
+		os.addOps(Ops.NOTHING, ids1.get());/* add an nothing-operator just for keeping 
 											* the lengths of ops and candidates the same.
 											*/
 		
-		os.addOps(ids2.get(), Ops.AND);
-		os.addOps(ids3.get(), Ops.AND);
+		os.addOps(Ops.AND, ids2.get());
+		os.addOps(Ops.AND, ids3.get());
 		
 		int[] result_ids = os.execute();
 		LFuture<ArrayList<Record32KBytes>> results = tc.dispatch(new QueryRecs(result_ids));

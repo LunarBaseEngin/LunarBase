@@ -11,7 +11,7 @@ public class OpsStack {
 	Vector<Ops> operators = new Vector<Ops>();
 	 
 	
-	public void addOps(int[] ids, Ops _op)
+	public void addOps(Ops _op, int[] ids)
 	{
 		cadidates.add(ids);
 		operators.add(_op);
