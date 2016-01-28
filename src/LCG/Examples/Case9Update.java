@@ -32,16 +32,12 @@ public class Case9Update {
 		for(int i=0;i<recs.get().size();i++)
 			System.out.println(recs.get().get(i).getID() + ":" + recs.get().get(i).recData());
 		/*
-		 * Step 2: then construct a new Deletion task 
+		 * Step 2: then construct a new Update task.
+		 * Here we update the latest record in the database.
 		 */ 
-		int rec_tobe_updated = 5999;
-		String[] prop = new String[2];
-		String[] val = new String[2];
-				
-		prop[0] = "payment";
-		val[0] = "1000000";
-		prop[1] = "age";
-		val[1] = "101";
+		int rec_tobe_updated = recs.get().get(recs.get().size()-1).getID();
+		String[] prop = {"payment", "age"};
+		String[] val = {"1000000", "101"}; 
 		
 		Update update_task = new Update(rec_tobe_updated, prop, val);
 		LFuture<Boolean> succeed = tc.dispatch(update_task);
