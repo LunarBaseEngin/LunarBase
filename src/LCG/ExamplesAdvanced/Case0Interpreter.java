@@ -29,9 +29,8 @@ public class Case0Interpreter {
 	
 		String db_root = "/home/feiben/DBTest/RTSeventhDB";
 		DBTaskCenter tc = new DBTaskCenter(db_root);  
-	
-		
-		
+		String table = "order"; 
+		 
 		/*
 		 * Step1: then construct a batch of queries, 
 		 * each of them returns an array of records ids for quick processing, 
@@ -45,9 +44,9 @@ public class Case0Interpreter {
 		 * the query is a combination of multiple conditions:
 		 * select where age=36 AND payment=600 AND name=Rafael8
 		 */
-		QuerySimpleIDs sq1 = new QuerySimpleIDs("age", "36", 0);
-		QuerySimpleIDs sq2 = new QuerySimpleIDs("payment", "600", 0);
-		QuerySimpleIDs sq3 = new QuerySimpleIDs("name", "Rafael8", 0);
+		QuerySimpleIDs sq1 = new QuerySimpleIDs(table, "age", "36", 0);
+		QuerySimpleIDs sq2 = new QuerySimpleIDs(table, "payment", "600", 0);
+		QuerySimpleIDs sq3 = new QuerySimpleIDs(table, "name", "Rafael8", 0);
 		
 		LFuture<int[]> ids1 = tc.dispatch(sq1);
 		LFuture<int[]> ids2 = tc.dispatch(sq2);
@@ -63,7 +62,7 @@ public class Case0Interpreter {
 		os.addOps(Ops.AND, ids3.get());
 		
 		int[] result_ids = os.execute();
-		LFuture<ArrayList<Record32KBytes>> results = tc.dispatch(new QueryRecs(result_ids));
+		LFuture<ArrayList<Record32KBytes>> results = tc.dispatch(new QueryRecs(table, result_ids));
 		
 		
 		/*

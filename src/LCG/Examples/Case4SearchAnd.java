@@ -16,10 +16,10 @@ public class Case4SearchAnd {
 	public static void main(String[] args) throws IOException {
 		String db_root = "/home/feiben/DBTest/RTSeventhDB";
 		DBTaskCenter tc = new DBTaskCenter(db_root);  
-		 
+		String table = "order"; 
 		
-		QuerySimple sq1 = new QuerySimple("age", "25", 0);
-		QuerySimple sq2 = new QuerySimple("payment", "600", 0);
+		QuerySimple sq1 = new QuerySimple(table, "age", "25", 0);
+		QuerySimple sq2 = new QuerySimple(table, "payment", "600", 0);
 		QueryAnd qa = new QueryAnd(sq1, sq2, 200);
 		tc.dispatch(qa);
 		

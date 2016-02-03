@@ -19,11 +19,11 @@ public class Case7SearchRange {
 	public static void main(String[] args) throws IOException {
 		String db_root = "/home/feiben/DBTest/RTSeventhDB";
 		DBTaskCenter tc = new DBTaskCenter(db_root);   
-		
+		String table = "order"; 
 		/*
 		 * Step1: then construct a new range query 
 		 */ 
-		QueryRange sq = new QueryRange("age", 25, 38);
+		QueryRange sq = new QueryRange(table, "age", 25, 38);
 		LFuture<int[][]> result_ids = tc.dispatch(sq);
 		
 		/*
@@ -33,7 +33,7 @@ public class Case7SearchRange {
 		 */
 		if(result_ids.get()!=null)
 		{
-			LFuture<ArrayList<Record32KBytes>> results = tc.dispatch(new QueryRecs(result_ids.get()[1]));	
+			LFuture<ArrayList<Record32KBytes>> results = tc.dispatch(new QueryRecs(table, result_ids.get()[1]));	
 			tc.dispatch(new QueryResult(results.get()));
 		}
 		 

@@ -15,6 +15,7 @@ public class Case2ListLatestN {
 	public static void main(String[] args) throws IOException {
 		String db_root = "/home/feiben/DBTest/RTSeventhDB";
 		DBTaskCenter tc = new DBTaskCenter(db_root);  
+		String table = "order";
 		 
 		CustomizedResultHandler my_handler = new CustomizedResultHandler();
 		if(tc.hasHandler(QueryResult.class))
@@ -23,7 +24,7 @@ public class Case2ListLatestN {
 		}
 		
 		
-		QueryLatestN l_n = new QueryLatestN(1000);  
+		QueryLatestN l_n = new QueryLatestN(table, 1000);  
 		LFuture<ArrayList<Record32KBytes>> recs = tc.dispatch(l_n);
 		
 		tc.dispatch(new QueryResult(recs.get()));

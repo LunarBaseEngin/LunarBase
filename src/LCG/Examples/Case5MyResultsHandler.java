@@ -13,6 +13,7 @@ public class Case5MyResultsHandler {
 	public static void main(String[] args) throws IOException {
 		String db_root = "/home/feiben/DBTest/RTSeventhDB";
 		DBTaskCenter tc = new DBTaskCenter(db_root);  
+		String table = "order"; 
 		
 		/*
 		 * Step1: create an instance of result handler, 
@@ -34,8 +35,8 @@ public class Case5MyResultsHandler {
 		 * Step3: then construct a new query, see if my new handler works :-)
 		 */
 		
-		QuerySimple sq1 = new QuerySimple("age", "36", 0);
-		QuerySimple sq2 = new QuerySimple("payment", "600", 0);
+		QuerySimple sq1 = new QuerySimple(table, "age", "36", 0);
+		QuerySimple sq2 = new QuerySimple(table, "payment", "600", 0);
 		QueryAnd qa = new QueryAnd(sq1, sq2, 200);
 		tc.dispatch(qa);
 		

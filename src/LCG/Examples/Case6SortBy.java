@@ -14,7 +14,7 @@ public class Case6SortBy {
 	public static void main(String[] args) throws IOException {
 		String db_root = "/home/feiben/DBTest/RTSeventhDB";
 		DBTaskCenter tc = new DBTaskCenter(db_root);  
-		
+		String table = "order"; 
 		/*
 		 * Step1: create an instance of result handler, 
 		 * in which we process the query results. 
@@ -36,7 +36,7 @@ public class Case6SortBy {
 		 */
 		 
 		 
-		QuerySimple sq = new QuerySimple("age", "36", 1000);
+		QuerySimple sq = new QuerySimple( table , "age", "36", 1000);
 		tc.dispatch(sq);
 		
 		

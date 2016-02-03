@@ -16,6 +16,7 @@ public class Case3SearchSimple {
 	public static void main(String[] args) throws IOException {
 		String db_root = "/home/feiben/DBTest/RTSeventhDB";
 		DBTaskCenter tc = new DBTaskCenter(db_root);  
+		String table = "order";
 		 
 		
 		/*
@@ -27,7 +28,7 @@ public class Case3SearchSimple {
 		 * if the input count is less than 0, engine prints all the 
 		 * records that matches.
 		 */
-		QuerySimple sq = new QuerySimple("age", "25", 200);
+		QuerySimple sq = new QuerySimple(table, "age", "25", 200);
 		tc.dispatch(sq);
 		 
 		tc.shutdownDB();

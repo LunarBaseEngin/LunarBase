@@ -11,6 +11,10 @@ public class Case1InsertRecords {
 	public static void main(String[] args) throws IOException {
 		String db_root = "/home/feiben/DBTest/RTSeventhDB";
 		DBTaskCenter tc = new DBTaskCenter(db_root);  
+		String table = "order";
+		
+		tc.getActiveDB().createTable(table); 
+		tc.getActiveDB().openTable(table);
 		
 		/*
 		 * Step 1: construct an object of a records array
@@ -26,14 +30,14 @@ public class Case1InsertRecords {
 		/*
 		 * Step2: dispatch it. LunarBase engine handles it.
 		 */
-		tc.dispatch(new IncommingRecords(records));
+		tc.dispatch(new IncommingRecords(table, records));
 		tc.saveDB();
 		
 		/*
 		 * Step 3: Test query, see if they are correctly inserted, 
 		 * and if property-value pair can be retrieved. 
 		 */
-		QuerySimple sq = new QuerySimple("age", "36", 200);
+		QuerySimple sq = new QuerySimple(table, "age", "36", 200);
 		tc.dispatch(sq);
 		
 		/*
