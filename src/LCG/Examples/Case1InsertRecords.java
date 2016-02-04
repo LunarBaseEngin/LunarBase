@@ -13,8 +13,12 @@ public class Case1InsertRecords {
 		DBTaskCenter tc = new DBTaskCenter(db_root);  
 		String table = "order";
 		
-		tc.getActiveDB().createTable(table); 
-		tc.getActiveDB().openTable(table);
+		if(!tc.getActiveDB().hasTable(table))
+		{
+			tc.getActiveDB().createTable(table); 
+			tc.getActiveDB().openTable(table);
+		}
+		
 		
 		/*
 		 * Step 1: construct an object of a records array
