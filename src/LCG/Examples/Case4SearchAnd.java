@@ -19,7 +19,7 @@ public class Case4SearchAnd {
 		String table = "order"; 
 		
 		QuerySimple sq1 = new QuerySimple(table, "age", "25", 0);
-		QuerySimple sq2 = new QuerySimple(table, "payment", "600", 0);
+		QuerySimple sq2 = new QuerySimple(table, "payment", "700", 0);
 		QueryAnd qa = new QueryAnd(sq1, sq2, 200);
 		tc.dispatch(qa);
 		
