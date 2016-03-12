@@ -2,6 +2,7 @@ package LCG.Examples;
 
 import java.io.IOException;
 
+import LCG.DB.API.LunarTable;
 import LCG.DB.EDF.DBTaskCenter; 
 import LCG.DB.EDF.Events.IncommingRecords; 
 import LCG.DB.EDF.Events.QuerySimple;
@@ -17,6 +18,12 @@ public class Case1InsertRecords {
 		{
 			tc.getActiveDB().createTable(table); 
 			tc.getActiveDB().openTable(table);
+			LunarTable l_table = tc.getActiveDB().getTable(table);
+			l_table.addSearchable("string", table, "name");
+			l_table.addSearchable("int", table, "payment");
+			l_table.addSearchable("int", table, "age");
+			
+			
 		}
 		
 		
