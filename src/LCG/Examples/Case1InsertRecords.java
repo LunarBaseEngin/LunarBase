@@ -19,9 +19,9 @@ public class Case1InsertRecords {
 			tc.getActiveDB().createTable(table); 
 			tc.getActiveDB().openTable(table);
 			LunarTable l_table = tc.getActiveDB().getTable(table);
-			l_table.addSearchable("string", table, "name");
-			l_table.addSearchable("int", table, "payment");
-			l_table.addSearchable("int", table, "age");
+			l_table.addSearchable("string", "name");
+			l_table.addSearchable("int", "payment");
+			l_table.addSearchable("int", "age");
 			
 			
 		}
