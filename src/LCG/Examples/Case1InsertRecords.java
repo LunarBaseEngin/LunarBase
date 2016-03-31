@@ -6,6 +6,8 @@ import LCG.DB.API.LunarTable;
 import LCG.DB.EDF.DBTaskCenter; 
 import LCG.DB.EDF.Events.IncommingRecords; 
 import LCG.DB.EDF.Events.QuerySimple;
+import LCG.EnginEvent.Interfaces.LFuture;
+import LCG.RecordTable.StoreUtile.Record32KBytes;
 
 public class Case1InsertRecords {
 
@@ -17,14 +19,14 @@ public class Case1InsertRecords {
 		if(!tc.getActiveDB().hasTable(table))
 		{
 			tc.getActiveDB().createTable(table); 
-			tc.getActiveDB().openTable(table);
-			LunarTable l_table = tc.getActiveDB().getTable(table);
-			l_table.addSearchable("string", "name");
-			l_table.addSearchable("int", "payment");
-			l_table.addSearchable("int", "age");
-			
+			tc.getActiveDB().openTable(table); 
 			
 		}
+		
+		LunarTable l_table = tc.getActiveDB().getTable(table);
+		l_table.addSearchable("string", "name");
+		l_table.addSearchable("int", "payment");
+		l_table.addSearchable("int", "age");
 		
 		
 		/*
@@ -41,9 +43,19 @@ public class Case1InsertRecords {
 		/*
 		 * Step2: dispatch it. LunarBase engine handles it.
 		 */
-		tc.dispatch(new IncommingRecords(table, records));
+		LFuture<Record32KBytes[]> interted = tc.dispatch(new IncommingRecords(table, records));
 		tc.saveDB();
 		
+		/*
+		 * check if all the records inserted correctly. 
+		 * If one fails, its rec_id is -1;
+		 */
+		Record32KBytes[] all_recs = interted.get();
+		for(int i=0; i < all_recs.length; i++)
+		{
+			if(all_recs[i].getID() == -1)
+				System.out.println(i + "-th records in the input array fails inserting");
+		}
 		/*
 		 * Step 3: Test query, see if they are correctly inserted, 
 		 * and if property-value pair can be retrieved. 

@@ -30,6 +30,8 @@ public class Case5MyResultsHandler {
 		{
 			tc.replaceHandler(QueryResult.class, my_handler);
 		}
+		else
+			tc.registerHandler(QueryResult.class, my_handler);
 		
 		/*
 		 * Step3: then construct a new query, see if my new handler works :-)
