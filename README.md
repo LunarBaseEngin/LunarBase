@@ -1,4 +1,4 @@
-# Application
+# Embeded version
 LunarBase engin in practice. Checkout details in wiki:
 https://github.com/LunarBaseEngin/LunarBase/wiki
 
