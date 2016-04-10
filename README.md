@@ -8,7 +8,7 @@ Current Lunarbase runs on Linux + X86 platform:
  5. JVM 1.8 or later;  
  6. GCC 4.8.4 or later;  
 
-You may check out [here](https://github.com/LunarBaseEngin/LunarBase/wiki/System-Preparation) and benchmark(https://github.com/LunarBaseEngin/LunarBase/wiki/BenchMark) to verify your enviroment.  
+You may check out [here](https://github.com/LunarBaseEngin/LunarBase/wiki/System-Preparation) and [benchmark](https://github.com/LunarBaseEngin/LunarBase/wiki/BenchMark) to verify your enviroment.  
 
 Runnable examples are under the folder [example](https://github.com/LunarBaseEngin/Application/tree/master/src/LCG/Examples), clone this project to your desktop, and run it for yourself.
 
