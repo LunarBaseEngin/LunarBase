@@ -1,5 +1,16 @@
 #10 minuts getting started
-Runnable java examples are under the folder [example](https://github.com/LunarBaseEngin/Application/tree/master/src/LCG/Examples), clone this project to your desktop, and run it for yourself:
+
+Current Lunarbase runs on Linux + X86 platform:  
+ 1. X86 platform;   
+ 2. 4GB memory;  
+ 3. 2 cores of CPU;  
+ 4. 64-bit Linux;  
+ 5. JVM 1.8 or later;  
+ 6. GCC 4.8.4 or later;  
+
+You may check out [here](https://github.com/LunarBaseEngin/LunarBase/wiki/System-Preparation) and benchmark(https://github.com/LunarBaseEngin/LunarBase/wiki/BenchMark) to verify your enviroment.  
+
+Runnable examples are under the folder [example](https://github.com/LunarBaseEngin/Application/tree/master/src/LCG/Examples), clone this project to your desktop, and run it for yourself.
 
 [creation.conf](https://github.com/LunarBaseEngin/Application/blob/master/creation.conf) is the configure file that tells LunarBase how to initialize a database. Any parameters in the [creation example](https://github.com/LunarBaseEngin/Application/blob/master/creation.conf) can be changed to meet your requirements. For example, if you need to cache the hottest 1 million records in memory, you shall change the parameter cache_records_in_memory = 20, (1 << 20 = 1 million). Of course, all the runtime tunable parameters can be changed at any time the db running.
 
