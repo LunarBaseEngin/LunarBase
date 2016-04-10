@@ -1,6 +1,6 @@
 #10 minuts getting started
 
-Current Lunarbase runs on Linux + X86 platform:  
+![image](https://github.com/LunarBaseEngin/LunarBase/blob/master/images/p2.png)Current Lunarbase runs on Linux + X86 platform:  
  1. X86 platform;   
  2. 4GB memory;  
  3. 2 cores of CPU;  
