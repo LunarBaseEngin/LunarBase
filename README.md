@@ -1,9 +1,9 @@
-Following the examples to get started. Runnable java examples are under the folder "https://github.com/LunarBaseEngin/Application/tree/master/src/LCG/Examples", clone this project to your desktop, and run it for yourself:
+#10 minuts getting started
+Runnable java examples are under the folder [example](https://github.com/LunarBaseEngin/Application/tree/master/src/LCG/Examples), clone this project to your desktop, and run it for yourself:
 
 [creation.conf](https://github.com/LunarBaseEngin/Application/blob/master/creation.conf) is the configure file that tells LunarBase how to initialize a database. Any parameters in the [creation example](https://github.com/LunarBaseEngin/Application/blob/master/creation.conf) can be changed to meet your requirements. For example, if you need to cache the hottest 1 million records in memory, you shall change the parameter cache_records_in_memory = 20, (1 << 20 = 1 million). Of course, all the runtime tunable parameters can be changed at any time the db running.
 
- 
-**## Case 0 CreateDB:  **
+#step 1: create a new database   
 ```
  String creation_conf = "/home/feiben/EclipseWorkspace/LunarBaseTutorial/creation.conf";  
  LunarDB.getInstance().createDB(creation_conf);  
@@ -19,14 +19,14 @@ and the name is ```RTSeventhDB```.
 
 root_path=/home/feiben/DBTest/  
 
-database_name = SeventhDB  
+database_name = RTSeventhDB  
 ```
 
-So the db root is ```/home/feiben/DBTest/SeventhDB```. The DBTaskCenter knowns from where to create the engine instance:
+So the db root is ```/home/feiben/DBTest/RTSeventhDB```. The DBTaskCenter knowns from where to create the engine instance:
  
-**## Case 1 Insert records and query: ** 
+#step 2: create a new table and insert data to it   
 ```
-String db_root = "/home/feiben/DBTest/SeventhDB";  
+String db_root = "/home/feiben/DBTest/RTSeventhDB";  
 DBTaskCenter tc = new DBTaskCenter(db_root);  
 String table = "order";
 if(!tc.getActiveDB().hasTable(table))
@@ -56,15 +56,21 @@ l_table.addSearchable("int", "age");
   * Step2: dispatch it. LunarBase engine handles it.  
   */  
  LFuture<Record32KBytes[]> inserted = tc.dispatch(new IncommingRecords(table, records));  
- tc.saveDB();
- 	
+ tc.saveDB();  
+``` 
+
+#step 3: simple query  
+```   	
  /*  
   * Step 3: Test query, see if they are correctly inserted,   
   * and if property-value pair can be retrieved.   
   */  
  QuerySimple sq = new QuerySimple(table, "age", "36", 200);  
  tc.dispatch(sq);
- 		
+```
+
+#step 4: shut down the database  
+``` 		
  /*  
   * Step 4: Must not forget to shut down the db.  
   */  
@@ -73,10 +79,9 @@ l_table.addSearchable("int", "age");
 
 
 # Embeded version
-LunarBase engin in practice. Checkout details in wiki:
-https://github.com/LunarBaseEngin/LunarBase/wiki
+For more detail discussion on the feature and use of LunarBase, visit the wiki [here](
+https://github.com/LunarBaseEngin/LunarBase/wiki)
 
-Knowledge Base:
-https://github.com/LunarBaseEngin/LunarBase/blob/master/LunarBase%20--%20A%20database%20engin%20for%20managing%20very%20large%20amounts%20of%20data%20--%20EN%20--V0.8.pdf
+or download the knowledge base file at [here](https://github.com/LunarBaseEngin/LunarBase/blob/master/LunarBase%20--%20A%20database%20engin%20for%20managing%20very%20large%20amounts%20of%20data%20--%20EN%20--V0.8.pdf)
 
 
