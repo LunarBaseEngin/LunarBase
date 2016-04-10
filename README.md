@@ -90,7 +90,7 @@ l_table.addSearchable("int", "age");
 
 
 # Embeded version
-For more detail discussion on the feature and use of LunarBase, visit the wiki [here](
+For elaboration on the features and use of LunarBase, please visit the wiki [here](
 https://github.com/LunarBaseEngin/LunarBase/wiki)
 
 or download the knowledge base file at [here](https://github.com/LunarBaseEngin/LunarBase/blob/master/LunarBase%20--%20A%20database%20engin%20for%20managing%20very%20large%20amounts%20of%20data%20--%20EN%20--V0.8.pdf)
