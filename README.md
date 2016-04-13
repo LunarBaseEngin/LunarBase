@@ -1,4 +1,4 @@
-#![image](https://github.com/LunarBaseEngin/LunarBase/blob/master/images/p2.png)10 minuts getting started
+#![image](https://github.com/LunarBaseEngin/LunarBase/blob/master/images/Logo_db_50_50.png)10 minuts getting started
 
 Current Lunarbase runs on Linux + X86 platform:  
  1. X86 platform;   
