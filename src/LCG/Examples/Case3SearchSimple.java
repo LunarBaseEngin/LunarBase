@@ -20,8 +20,8 @@ public class Case3SearchSimple {
 		 
 		
 		/*
-		 * construct an QuerySimple with a pair of property-value. 
-		 * LunarBase engine execute it, and returns the result.
+		 * construct an QuerySimple with a pair of column-value. 
+		 * LunarBase engine executes it, and returns the result.
 		 * By default result handler, just print out. 
 		 * 
 		 * Here print out the latest 200 results that match. 
