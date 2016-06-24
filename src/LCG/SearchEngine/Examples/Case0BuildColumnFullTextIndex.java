@@ -45,7 +45,7 @@ public class Case0BuildColumnFullTextIndex {
 		 
 			 
 			/*
-			 * Step 3: insert records. LunarBase will parse the column "comment", 
+			 * Step 3: insert records. LunarBase will tokenize the column "comment", 
 			 * and build index on it for further key word search.
 			 * 
 			 * In this case, we has another searchable column "name" as well. 
