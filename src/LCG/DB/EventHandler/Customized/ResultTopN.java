@@ -6,8 +6,7 @@ import LCG.DB.EDF.Events.QueryResult;
 import LCG.EnginEvent.Event;
 import LCG.EnginEvent.EventHandler;
 import LCG.EnginEvent.Interfaces.LHandler;
-import LCG.RecordTable.StoreUtile.Record32KBytes;
-import LCG.RecordTable.StoreUtile.ValueTypes.SupportedTypes;
+import LCG.RecordTable.StoreUtile.Record32KBytes; 
 /*
  * Top N is a popular demand on lots of web sites. 
  * Suppose we have an e-commerce site, and on some hot 

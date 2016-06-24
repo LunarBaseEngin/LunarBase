@@ -8,8 +8,7 @@ import LCG.DB.EDF.Events.QueryResult;
 import LCG.EnginEvent.Event;
 import LCG.EnginEvent.EventHandler;
 import LCG.EnginEvent.Interfaces.LHandler;
-import LCG.RecordTable.StoreUtile.Record32KBytes;
-import LCG.RecordTable.StoreUtile.ValueTypes.SupportedTypes;
+import LCG.RecordTable.StoreUtile.Record32KBytes; 
 
 /*
  * this implementation studies how to sort the result by a specific property.
