@@ -21,7 +21,7 @@ Runnable examples are under the folder [example](https://github.com/LunarBaseEng
  LunarDB.getInstance().closeDB();  
 ```
 
-Where within the creation.conf, it tells us the database is located under ```root_path=/home/feiben/DBTest/```, 
+Where within the creation.conf, it tells us the database locates under ```root_path=/home/feiben/DBTest/```, 
 and the name is ```RTSeventhDB```.
 ``` 
 # ----------------#  
