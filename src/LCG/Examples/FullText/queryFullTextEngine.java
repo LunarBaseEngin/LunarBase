@@ -31,7 +31,10 @@ public class queryFullTextEngine {
 	if(key_ids == null)
 	{
 		System.out.println("no results found");
-			return;
+		if(l_db != null)  
+			l_db.closeDB();  
+		return;
+			
 	}
 	int len = Math.min(key_ids.length, 1500);
 			
