@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutionException;
 
 import LCG.DB.API.LunarDB;
 import LCG.DB.API.LunarTable;
+import LCG.DB.API.Result.FTQueryResult;
 import LCG.RecordTable.StoreUtile.Record32KBytes; 
 
 public class queryGrammaFullTextEngine {
@@ -31,14 +32,16 @@ public class queryGrammaFullTextEngine {
 	 * keywords of OR,OR,AND.
 	 */
 	String query = column + " against(\"大家 + 共同\")";
-	int latest = 200;
-	ArrayList<Record32KBytes> recs  = l_db.getTable(table).queryFullText(query,latest);
-			
+	int latest = 0;
+	 
+	FTQueryResult result = l_db.queryFullText(table, query , latest);  
 
 	long end_time = System.nanoTime();
 
 	double duration_ms  = (end_time - start_time) / 1000000.0 ;
-		 
+	
+	int top_n = 200;
+	ArrayList<Record32KBytes> recs = result.fetchRecords(top_n);
 	for(int i=0 ;i<recs.size() ;i++)
 	{
 		System.out.println(recs.get(i).getID() + ": "+recs.get(i).recData());
@@ -46,7 +49,7 @@ public class queryGrammaFullTextEngine {
 			
 	System.out.println("full text search has records: " + recs.size());
 			 
-	System.out.println("Fetching records costs "+ duration_ms + " (ms)"); 
+	System.out.println("full text search costs "+ duration_ms + " (ms)"); 
  
 	if(l_db!=null)
 	{ 
