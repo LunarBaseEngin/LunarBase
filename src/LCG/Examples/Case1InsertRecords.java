@@ -24,8 +24,8 @@ public class Case1InsertRecords {
 		}
 		
 		LunarTable l_table = tc.getActiveDB().getTable(table);
-		l_table.addSearchable("string", "name");
-		l_table.addSearchable("int", "payment");
+		 
+		l_table.addSearchable("long", "payment");
 		l_table.addSearchable("int", "age");
 		
 		

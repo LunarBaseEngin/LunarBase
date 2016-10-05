@@ -3,6 +3,7 @@ package LCG.Examples;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import LCG.DB.API.Result.RGQueryResult;
 import LCG.DB.EDF.DBTaskCenter;
 import LCG.DB.EDF.Events.QueryAnd;
 import LCG.DB.EDF.Events.QueryRange;
@@ -23,18 +24,18 @@ public class Case7SearchRange {
 		/*
 		 * Step1: then construct a new range query 
 		 */ 
-		QueryRange sq = new QueryRange(table, "age", 25, 38);
-		LFuture<int[][]> result_ids = tc.dispatch(sq);
+		QueryRange sq = new QueryRange(table, "payment", 600, 700);
+		LFuture<RGQueryResult> results = tc.dispatch(sq);
 		
 		/*
 		 * Step2: we have a result ids, which is 2 dimension:
 		 * result_ids1[0]: all the ages between 25 to 38
 		 * result_ids1[1]: all the records that match
 		 */
-		if(result_ids.get()!=null)
+		if(results.get().resultCount() >= 0)
 		{
-			LFuture<ArrayList<Record32KBytes>> results = tc.dispatch(new QueryRecs(table, result_ids.get()[1]));	
-			tc.dispatch(new QueryResult(results.get()));
+			ArrayList<Record32KBytes> recs = results.get().fetchRecords();	
+			tc.dispatch(new QueryResult(recs));
 		}
 		 
 	
