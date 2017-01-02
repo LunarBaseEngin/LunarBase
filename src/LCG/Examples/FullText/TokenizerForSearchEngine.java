@@ -22,6 +22,21 @@ import Lunarion.SE.FullText.Lexer.TokenizerInterface;
  * 
  * returns the hash map with each team and its score.
  */
+ 
+
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+
+import org.ansj.domain.Term;
+import org.ansj.splitWord.analysis.ToAnalysis;
+
+import Lunarion.SE.AtomicStructure.TermScore;
+import Lunarion.SE.FullText.Lexer.TokenizerInterface;
+ 
 public class TokenizerForSearchEngine extends TokenizerInterface{
 
  
@@ -84,6 +99,8 @@ public class TokenizerForSearchEngine extends TokenizerInterface{
 
 	@Override
 	public HashMap<String, TermScore> tokenizeTerm(String input_str) {
+		
+		//long startt = System.nanoTime(); 
 		tokens = ToAnalysis.parse(input_str);
 		token_iterator = tokens.listIterator();
 		
@@ -91,19 +108,39 @@ public class TokenizerForSearchEngine extends TokenizerInterface{
 		while(token_iterator.hasNext())
 		{
 			Term term = token_iterator.next();
-			if(hash.get(term.getName()) == null)
-				hash.put(term.getName(), new TermScore(term.getName(), 0));
-			else
+			if(term.getName().length()>=2)
 			{
-				TermScore exist_term = hash.get(term.getName());
-				int new_score = exist_term.getScore()+1;
-				exist_term.setScore(new_score);
-				hash.put(term.getName(), exist_term);
+				if(hash.get(term.getName()) == null)
+					hash.put(term.getName(), new TermScore(term.getName(), 0));
+				else
+				{
+					TermScore exist_term = hash.get(term.getName());
+					int new_score = exist_term.getScore()+1;
+					exist_term.setScore(new_score);
+					hash.put(term.getName(), exist_term);
+				}
 			}
 		}
+		//long endd = System.nanoTime(); 
+		//System.out.println("Tokenization costs: " + (endd - startt ) + " ns"); 
 		
 		return hash;
 	}
 
-
+	public static void main(String[] args) throws InterruptedException {
+		
+		TokenizerForSearchEngine tfs = new TokenizerForSearchEngine();
+		String[] records = new String[4];		
+		records[0] = "{name=jackson6, score=50, comment=[\"一年一年可以看到更富更强些。而这个富，是共同的富，这个强，是共同的强，大家都有份,,.  \"]}"; 
+		HashMap<String, TermScore> ttt = null;
+		for(int i=0;i<1000;i++)
+			ttt = tfs.tokenizeTerm(records[0]);
+		
+		Iterator<String> keys = ttt.keySet().iterator();
+		while(keys.hasNext())
+		{
+			System.out.println(keys.next());
+		}
+	}
+	
 }
