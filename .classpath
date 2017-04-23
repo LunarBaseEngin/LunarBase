@@ -5,5 +5,7 @@
 	<classpathentry kind="lib" path="lunar_mmu_build_20160623_v0.8.2.jar"/>
 	<classpathentry kind="lib" path="lunar_virtual_file_system_build_20160623_v0.8.2.jar"/>
 	<classpathentry kind="lib" path="lunarbase_engin_build_20160623_v0.8.2.jar"/>
+	<classpathentry kind="lib" path="libs/ansj_seg-3.7.6.jar"/>
+	<classpathentry kind="lib" path="libs/nlp-lang-1.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
