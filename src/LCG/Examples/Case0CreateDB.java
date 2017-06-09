@@ -12,11 +12,12 @@ public class Case0CreateDB {
 		String creation_conf = "/home/feiben/EclipseWorkspace/LunarBaseApplication/creation.conf";
 		String root_path = "/home/feiben/DBTest/";
 		
-		LunarDB.getInstance().createDB(root_path, creation_conf);
+		LunarDB l_db = new LunarDB();
+		l_db.createDB(root_path, creation_conf);
 		
 		 
 		try {
-			LunarDB.getInstance().closeDB();
+			l_db.closeDB();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

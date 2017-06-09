@@ -15,7 +15,7 @@ public class queryFullTextEngine {
 		
 	String db_root = "/home/feiben/DBTest/RTSeventhDB";
 	
-	LunarDB l_db = LunarDB.getInstance();
+	LunarDB l_db = new LunarDB();
 	String table = "profile"; 
 	String column = "comment";  
 
