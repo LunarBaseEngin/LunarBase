@@ -43,7 +43,7 @@ public class InsertFullTextEngineWithChineseTokenizer {
 			
 	LunarTable t_table = l_db.getTable(table);
 	TokenizerForSearchEngine t_e = new TokenizerForSearchEngine(); 
-	t_table.registerTokenizer(t_e); 
+	t_table.registerTokenizer(column, t_e); 
 		 
 	for(int i=0;i<5000 ;i++)
 	{
