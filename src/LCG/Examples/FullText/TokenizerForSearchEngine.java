@@ -97,6 +97,7 @@ public class TokenizerForSearchEngine extends TokenizerInterface{
         token_iterator = tokens.listIterator();
     }
 
+    
 	@Override
 	public HashMap<String, TermScore> tokenizeTerm(String input_str) {
 		
